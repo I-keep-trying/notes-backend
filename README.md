@@ -2,8 +2,11 @@ Starting over - 'fullstackopen' section 3 with mongodb
 I got to section 5 and realized I did not understand WHY and broke my app beyond repair trying to figure it out.
 
 😁YAY! It works now!
+... Uhhh, sorta. Only on localhost I guess. 🤕
 
-https://arcane-lake-01706.herokuapp.com/api/notes
+https://floating-bayou-03011.herokuapp.com/
+
+The Heroku deploy looks ok at first glance, but the login is not working idk why.
 
 Steps to deploy (Express) :
 
@@ -44,4 +47,5 @@ Lesson learned the hard way. Heroku does not update your .git/config for you if 
 	fetch = +refs/heads/*:refs/remotes/heroku/*
 
 ```
+
 Make sure the right url is entered.
