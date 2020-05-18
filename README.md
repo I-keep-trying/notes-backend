@@ -13,7 +13,7 @@ Steps to deploy (Express) :
 
 3. create repo/commit to git _without `build` directory_ - `git push -u origin master`
 
-4. verify sample data
+4. configure Heroku with mongodb url/password `heroku config:set MONGODB_URI=mongodb+srv://fullstack2020:YOUR-ACTUAL-PASSWORD@cluster0-lw40o.mongodb.net/example-app?retryWrites=true`
 
 5. commit to heroku - `git push heroku master`
 
@@ -34,3 +34,14 @@ git commit -m "message"
 git push origin master
 
 ```
+
+#HEROKU TROUBLESHOOTING:
+Lesson learned the hard way. Heroku does not update your .git/config for you if you delete and re-create your heroku app. If you run into problems, check this file for an entry that looks like this:
+
+```
+[remote "heroku"]
+	url = https://git.heroku.com/floating-bayou-03011.git
+	fetch = +refs/heads/*:refs/remotes/heroku/*
+
+```
+Make sure the right url is entered.
