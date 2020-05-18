@@ -1,0 +1,71 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 1073
+ETag: W/"431-Z5QDgeqG2CljFpHyscJucT0f9hQ"
+Date: Thu, 14 May 2020 18:37:28 GMT
+Connection: close
+
+[
+  {
+    "content": "Another note by Lisa",
+    "important": false,
+    "date": "5/14/2020, 1:06:58 PM",
+    "user": {
+      "name": "Lisa Simpson",
+      "id": "5ebd79b8f2d97e0ac409ae9a"
+    },
+    "id": "5ebd7ab25bce0d1e4c79de4f"
+  },
+  {
+    "content": "Adventure is my life",
+    "important": true,
+    "date": "5/14/2020, 1:08:52 PM",
+    "user": {
+      "name": "Tricky Rick",
+      "id": "5ebd7885b23cfa2044c8eb70"
+    },
+    "id": "5ebd7b245bce0d1e4c79de50"
+  },
+  {
+    "content": "The earth might be flat",
+    "important": true,
+    "date": "5/14/2020, 1:09:15 PM",
+    "user": {
+      "name": "Tricky Rick",
+      "id": "5ebd7885b23cfa2044c8eb70"
+    },
+    "id": "5ebd7b3b5bce0d1e4c79de51"
+  },
+  {
+    "content": "The earth might be flat",
+    "important": true,
+    "date": "5/14/2020, 1:19:55 PM",
+    "user": {
+      "name": "Tricky Rick",
+      "id": "5ebd7885b23cfa2044c8eb70"
+    },
+    "id": "5ebd7dbb8e20434074aa95f3"
+  },
+  {
+    "content": "Whos your daddy",
+    "important": true,
+    "date": "5/14/2020, 1:44:55 PM",
+    "user": {
+      "name": "Tricky Rick",
+      "id": "5ebd7885b23cfa2044c8eb70"
+    },
+    "id": "5ebd83977800112274ed3817"
+  },
+  {
+    "content": "Another change to the note",
+    "important": false,
+    "date": "5/14/2020, 1:51:53 PM",
+    "user": {
+      "name": "Tricky Rick",
+      "id": "5ebd7885b23cfa2044c8eb70"
+    },
+    "id": "5ebd853991b3a928343fdae2"
+  }
+]

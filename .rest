@@ -1,0 +1,63 @@
+GET http://localhost:3003/ HTTP/1.1
+
+###
+
+GET http://localhost:3003/api/notes HTTP/1.1
+###
+
+GET http://localhost:3003/api/notes/5ebd7ab25bce0d1e4c79de4f HTTP/1.1
+
+//5ebc517b158195380c6d8c76
+### New note
+POST http://localhost:3003/api/notes HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc2FfU2ltcHNvbiIsImlkIjoiNWViZDc5YjhmMmQ5N2UwYWM0MDlhZTlhIiwiaWF0IjoxNTg5NDgxMDMyfQ.ExzqY08WJxZcO0BCkaKjO2fJce8u9GNJcEuwprs2AxY
+
+{
+  "content": "You're not my dad",
+  "important": true
+}
+
+###
+DELETE http://localhost:3003/api/notes/5ebeb72e51b9e103c0fd4ce8 HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc2FfU2ltcHNvbiIsImlkIjoiNWViZDc5YjhmMmQ5N2UwYWM0MDlhZTlhIiwiaWF0IjoxNTg5NDgxMDMyfQ.ExzqY08WJxZcO0BCkaKjO2fJce8u9GNJcEuwprs2AxY
+
+### Update note
+PATCH http://localhost:3003/api/notes/5ebd9b4131875e28041baf34 HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc2FfU2ltcHNvbiIsImlkIjoiNWViZDc5YjhmMmQ5N2UwYWM0MDlhZTlhIiwiaWF0IjoxNTg5NDgxMDMyfQ.ExzqY08WJxZcO0BCkaKjO2fJce8u9GNJcEuwprs2AxY
+  
+  {
+    "important": false
+  }
+
+###
+GET http://localhost:3003/api/users HTTP/1.1
+
+### Create User
+POST http://localhost:3003/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "zz",
+  "name": "zz",
+  "password": "password"
+}
+
+### Login user Lisa
+POST http://localhost:3003/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "Lisa_Simpson",
+  "password": "password"
+}
+
+### Login user Rick
+POST http://localhost:3003/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "Rick_Sanchez",
+  "password": "password"
+}
