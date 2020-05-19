@@ -140,7 +140,18 @@ app.get('/api/users', async (request, response) => {
   response.json(users.map((user) => user))
 })
 
-app.post('/api/users', async (request, response) => {
+
+app.post("/api/users", async (req, res) => {
+  const user = new User(req.body);
+  try {
+    const token = await user.newAuthToken();
+    res.status(201).send({ user, token });
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+/* app.post('/api/users', async (request, response) => {
   const body = request.body
 if (body.password.length < 8) {
   return response.json('password too short')
@@ -156,7 +167,7 @@ if (body.password.length < 8) {
   const savedUser = await user.save()
 
   response.json(savedUser)
-})
+}) */
 
 /* ----------------------------------------- */
 /* LOGIN ROUTE - to be refactored later */
