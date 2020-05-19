@@ -2,11 +2,8 @@ Starting over - 'fullstackopen' section 3 with mongodb
 I got to section 5 and realized I did not understand WHY and broke my app beyond repair trying to figure it out.
 
 😁YAY! It works now!
-... Uhhh, sorta. Only on localhost I guess. 🤕
 
 https://floating-bayou-03011.herokuapp.com/
-
-The Heroku deploy looks ok at first glance, but the login is not working idk why.
 
 Steps to deploy (Express) :
 
@@ -17,6 +14,10 @@ Steps to deploy (Express) :
 3. create repo/commit to git _without `build` directory_ - `git push -u origin master`
 
 4. configure Heroku with mongodb url/password `heroku config:set MONGODB_URI=mongodb+srv://fullstack2020:YOUR-ACTUAL-PASSWORD@cluster0-lw40o.mongodb.net/example-app?retryWrites=true`
+
+---
+
+NOTE: Don't forget to add `SECRET=secret` to heroku config after adding jwt auth! That's what my problem was!
 
 5. commit to heroku - `git push heroku master`
 
