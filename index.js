@@ -9,6 +9,8 @@ const User = require('./models/user')
 
 const cors = require('cors')
 
+const expiresIn = '1h'
+
 app.use(cors())
 
 app.use(bodyParser.json())
@@ -95,7 +97,7 @@ const userId = await User.findById(body.userId)
     content: body.content,
     important: body.important || false,
     date: new Date(),
-    user: user._id,
+    user: user,
   })
 
   const savedNote = await note.save()
@@ -117,8 +119,7 @@ app.patch('/api/notes/:id', async (request, response) => {
   const user = await User.findById(decodedToken.id)
   const userId = user._id.toString()
   /////
-console.log('patch body', body)
-  const note = await Note.findByIdAndUpdate(request.params.id, body.id, {
+  const note = await Note.findByIdAndUpdate(request.params.id, body, {
     new: true,
   })
   const noteUser = note.user.toString()
@@ -140,16 +141,15 @@ app.get('/api/users', async (request, response) => {
   response.json(users.map((user) => user))
 })
 
-
-app.post("/api/users", async (req, res) => {
-  const user = new User(req.body);
+app.post('/api/users', async (req, res) => {
+  const user = new User(req.body)
   try {
-    const token = await user.newAuthToken();
-    res.status(201).send({ user, token });
+    const token = await user.newAuthToken()
+    res.status(201).send({ user, token })
   } catch (e) {
-    res.status(400).send(e);
+    res.status(400).send(e)
   }
-});
+})
 
 /* app.post('/api/users', async (request, response) => {
   const body = request.body
@@ -193,7 +193,7 @@ app.post('/api/login', async (request, response) => {
     id: user._id,
   }
 
-  const token = jwt.sign(userForToken, process.env.SECRET)
+  const token = jwt.sign(userForToken, process.env.SECRET, { expiresIn })
 
   response.status(200).send({ token, username: user.username, name: user.name })
 })
