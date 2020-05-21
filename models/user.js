@@ -1,6 +1,17 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
+// Future task: User registration
+//const { isEmail } = require('validator')
+
+// https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669
+/* const EmailSchema = new mongoose.Schema({
+  email: {
+    //... other setup
+    validate: [isEmail, 'invalid email'],
+  },
+}) */
+
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, minlength: 1, required: true },
   name: { type: String, minlength: 1, required: true },

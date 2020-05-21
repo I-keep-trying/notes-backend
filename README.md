@@ -9,7 +9,7 @@ Steps to deploy (Express) :
 
 1. heroku login, heroku create
 
-2. add `Procfile` to backend root, add `app.use(express.static("build"))` to `index.js`
+2. add `Procfile` to backend root, and add `app.use(express.static("build"))` to `index.js`
 
 3. create repo/commit to git _without `build` directory_ - `git push -u origin master`
 
@@ -19,28 +19,8 @@ Steps to deploy (Express) :
 
 NOTE: Don't forget to add `SECRET=secret` to heroku config after adding jwt auth! That's what my problem was!
 
-5. commit to heroku - `git push heroku master`
-
-6. copy `build` directory from frontend to root of backend
-
-7. commit again - `git push -u origin master`
-
-8. push to heroku again - `git push heroku master`
-
-Note: no need to commit front end for this to work
-
-In order to replace `build` directory in git repo:
-
-```
-git checkout master
-git rm -r build
-git commit -m "message"
-git push origin master
-
-```
-
 #HEROKU TROUBLESHOOTING:
-Lesson learned the hard way. Heroku does not update your .git/config for you if you delete and re-create your heroku app. If you run into problems, check this file for an entry that looks like this:
+Lesson learned the hard way. Heroku does not update your .git/config for you if you delete and re-create your heroku app. If you run into problems, check the config file for an entry that looks like this:
 
 ```
 [remote "heroku"]
@@ -49,4 +29,4 @@ Lesson learned the hard way. Heroku does not update your .git/config for you if 
 
 ```
 
-Make sure the right url is entered.
+Make sure the url is correct.

@@ -151,7 +151,7 @@ app.post('/api/users', async (req, res) => {
   }
 })
 
-/* app.post('/api/users', async (request, response) => {
+app.post('/api/register', async (request, response) => {
   const body = request.body
 if (body.password.length < 8) {
   return response.json('password too short')
@@ -164,10 +164,11 @@ if (body.password.length < 8) {
     name: body.name,
     passwordHash,
   })
+  const token = await user.newAuthToken()
   const savedUser = await user.save()
 
   response.json(savedUser)
-}) */
+})
 
 /* ----------------------------------------- */
 /* LOGIN ROUTE - to be refactored later */
