@@ -1,17 +1,17 @@
-GET http://localhost:3003/ HTTP/1.1
+GET http://localhost:3002/ HTTP/1.1
 
 ###
 
-GET http://localhost:3003/api/notes HTTP/1.1
+GET http://localhost:3002/api/notes HTTP/1.1
 ###
 
-GET http://localhost:3003/api/notes/5ebd7ab25bce0d1e4c79de4f HTTP/1.1
+GET http://localhost:3002/api/notes/5ebd7ab25bce0d1e4c79de4f HTTP/1.1
 
 //5ebc517b158195380c6d8c76
 ### New note
-POST http://localhost:3003/api/notes HTTP/1.1
+POST http://localhost:3002/api/notes HTTP/1.1
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc2FfU2ltcHNvbiIsImlkIjoiNWViZDc5YjhmMmQ5N2UwYWM0MDlhZTlhIiwiaWF0IjoxNTg5NDgxMDMyfQ.ExzqY08WJxZcO0BCkaKjO2fJce8u9GNJcEuwprs2AxY
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc2FfU2ltcHNvbiIsImlkIjoiNWVjZThjOTM1ZWQ2YTg0Njc0YzQxMzkxIiwiaWF0IjoxNTkxMTIwMDY3fQ.jqY3Xuvbr7y8CO8chkpnyi__7yWu1lCeKdR7aME7jP
 
 {
   "content": "You're not my dad",
@@ -19,42 +19,44 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc
 }
 
 ###
-DELETE http://localhost:3003/api/notes/5ebeb72e51b9e103c0fd4ce8 HTTP/1.1
+DELETE http://localhost:3002/api/notes/5ebeb72e51b9e103c0fd4ce8 HTTP/1.1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc2FfU2ltcHNvbiIsImlkIjoiNWViZDc5YjhmMmQ5N2UwYWM0MDlhZTlhIiwiaWF0IjoxNTg5NDgxMDMyfQ.ExzqY08WJxZcO0BCkaKjO2fJce8u9GNJcEuwprs2AxY
 
 ### Update note
-PATCH http://localhost:3003/api/notes/5ebd7b245bce0d1e4c79de50 HTTP/1.1
+PATCH http://localhost:3002/api/notes/5ece8d625ed6a84674c41392 HTTP/1.1
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlJpY2tfU2FuY2hleiIsImlkIjoiNWViZDc4ODViMjNjZmEyMDQ0YzhlYjcwIiwiaWF0IjoxNTg5OTkxMTM3fQ.-sBKghsc8kT6XSiSNgSkcY9bPcKp0-owaTGEEZqai6k
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikxpc2FfU2ltcHNvbiIsImlkIjoiNWVjZThjOTM1ZWQ2YTg0Njc0YzQxMzkxIiwiaWF0IjoxNTkwNTk0OTAxLCJleHAiOjE1OTA1OTg1MDF9.XZxa0NZ6WOvbpmwJMghmeEKIbTmiC9AEtrUPCMWROp0  
   
   {
-    "important": false
+    "important": true
   }
 
 ###
-GET http://localhost:3003/api/users HTTP/1.1
+GET http://localhost:3002/api/users HTTP/1.1
+###
+GET http://localhost:3002/api/users/register HTTP/1.1
 
 ### Create User
-POST http://localhost:3003/api/users HTTP/1.1
+POST http://localhost:3002/api/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "zz",
-  "name": "zz",
+  "username": "Homer_Simpson",
+  "name": "Homer Simpson",
   "password": "password"
 }
 
 ### Login user Lisa
-POST http://localhost:3003/api/login HTTP/1.1
+POST http://localhost:3002/api/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "Lisa_Simpson",
+  "username": "Homer_Simpson",
   "password": "password"
 }
 
 ### Login user Rick
-POST http://localhost:3003/api/login HTTP/1.1
+POST http://localhost:3002/api/login HTTP/1.1
 Content-Type: application/json
 
 {
